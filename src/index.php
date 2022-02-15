@@ -148,6 +148,34 @@ $products = array(
               echo"</table>";
           
           }
+          function del(){
+            global $products;
+            foreach($products as $key => $categories)
+        {
+            foreach($categories as $key2 => $sub)
+            {
+                foreach($sub as $key3 => $item){
+                    if($item["id"]=="PR003"){
+                       unset($products[$key][$key2][$key3]);
+                    }
+                }
+            }
+        }
+        
+        echo "<table>";
+            echo "<tr><th>Category</th><th>Sub Category</th><th>ID</th><th>Name</th><th>Brand</th></tr>";
+            foreach($products as $key => $categories)
+            {
+                foreach($categories as $key2 => $sub)
+                {
+                    foreach($sub as $key3 => $item){
+                            echo "<tr><td>$key</td><<td>$key2</td><td>$item[id]</td><td>$item[name]</td><td>$item[brand]</td>";
+                        }
+                }
+            }
+            echo "</table>";
+        }
+        
 
         ?>
 <!DOCTYPE html>
@@ -165,6 +193,7 @@ $products = array(
     display1();
     display2();
     dis3();
+    del();
     
     ?>
 </body>
