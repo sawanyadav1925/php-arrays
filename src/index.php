@@ -175,6 +175,29 @@ $products = array(
             }
             echo "</table>";
         }
+        function updatePro($a){
+            global $products;
+            
+            
+            foreach($products as $key=>$value){
+        
+                foreach($value as $subCat=>$val){
+                    
+        
+                    foreach($val as $v1=>$ab){
+                        if($ab["id"]==$a){
+                          $products[$key][$subCat][$v1]["name"]="BIG-555";
+                        
+                        
+                    }
+                       
+                      }
+                  
+            }
+          }
+          display1();
+        }
+        
         
 
         ?>
@@ -194,6 +217,7 @@ $products = array(
     display2();
     dis3();
     del();
+    updatePro("PR002");
     
     ?>
 </body>
